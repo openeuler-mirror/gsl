@@ -36,7 +36,7 @@ mv THANKS.aux THANKS
 
 %build
 # disable FMA
-%ifarch aarch64
+%ifarch aarch64 riscv64
 export CFLAGS="$RPM_OPT_FLAGS -ffp-contract=off"
 %endif
 %configure
