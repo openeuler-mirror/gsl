@@ -1,9 +1,9 @@
 Name: gsl
 Version: 2.4
-Release: 9
+Release: 10
 Summary: The GNU Scientific Library for numerical analysis
 URL: http://www.gnu.org/software/gsl/
-License: GPLv3 and GFDL and BSD
+License: GPLv3 and GFDL-1.3-or-later and BSD
 Source: ftp://ftp.gnu.org/gnu/gsl/%{name}-%{version}.tar.gz
 
 Patch0: gsl-test.patch
@@ -36,7 +36,7 @@ mv THANKS.aux THANKS
 
 %build
 # disable FMA
-%ifarch aarch64
+%ifarch aarch64 loongarch64
 export CFLAGS="$RPM_OPT_FLAGS -ffp-contract=off"
 %endif
 %configure
@@ -90,5 +90,8 @@ fi
 %{_mandir}/man3/*.3*
 
 %changelog
+* Wed Dec 07 2022 xu_ping <xuping33@h-partners.com> - 2.4-10
+- Adaptation Loongarch
+
 * Fri Feb 14 2020 fengbing <fengbing7@huawei.com> - 2.4-9
 - Package init
